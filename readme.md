@@ -10,6 +10,7 @@ This project is a weather-based dog walking planner, developed during a [Mini-Ha
 
 ## Demo
 
+[Live demo](https://jonashuberts.github.io/dog-walk-planner/)
 ![Demo Screenshot](demo.png)
 
 ## Installation
