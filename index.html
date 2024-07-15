@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gassi gehen Planer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto py-8 px-4">
+      <h1 class="text-3xl mb-4 text-center">🐕 + 🏃‍♂️ Planer</h1>
+      <form
+        id="walkForm"
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
+        <div class="mb-4">
+          <label
+            for="timesPerDay"
+            class="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Wie oft möchten Sie pro Tag spazieren gehen?
+          </label>
+          <input
+            type="number"
+            id="timesPerDay"
+            name="timesPerDay"
+            min="1"
+            max="10"
+            value="3"
+            required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-4">
+          <label
+            for="startTime"
+            class="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Ab wann möchten Sie frühestens spazieren gehen? (HH:MM)
+          </label>
+          <input
+            type="time"
+            id="startTime"
+            name="startTime"
+            value="08:00"
+            required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-4">
+          <label
+            for="endTime"
+            class="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Bis wann möchten Sie spätestens spazieren gehen? (HH:MM)
+          </label>
+          <input
+            type="time"
+            id="endTime"
+            name="endTime"
+            value="18:00"
+            required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="manualLocation" class="flex items-center">
+            <input type="checkbox" id="manualLocation" class="mr-2" />
+            <span class="text-sm">Manuelle Standortauswahl</span>
+          </label>
+          <div id="manualLocationFields" class="hidden">
+            <label
+              for="cityName"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Stadtname:</label
+            >
+            <input
+              type="text"
+              id="cityName"
+              name="cityName"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Empfehlung anzeigen
+        </button>
+      </form>
+
+      <div id="results" class="mt-8">
+        <h2 class="text-xl mb-4">Empfohlene Zeiten:</h2>
+        <ul id="timeList" class="list-none"></ul>
+      </div>
+
+      <div class="mt-8">
+        <canvas id="rainChart"></canvas>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
